@@ -1,8 +1,7 @@
-FROM node:18-alpine AS build
+FROM node:latest  AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-COPY . .
-RUN npm run build
+COPY ./ .
+RUN npm run serve
 EXPOSE 4200
-CMD ["npm", "start"]
